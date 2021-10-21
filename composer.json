@@ -1,17 +1,14 @@
 {
-  "require": {
-    "yiisoft/yii2": "~2.0.0",
-    "yiisoft/yii2-httpclient": "^2.0"
-  },
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://mirrors.aliyun.com/composer/"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "gamecenter\\": "../"
-    }
-  }
+    "name": "qqingdou/gamecenter",
+    "description": "the game center api background code",
+    "type": "library",
+    "require": {
+        "yiisoft/yii2": "~2.0.14"
+    },
+    "authors": [
+        {
+            "name": "tp",
+            "email": "pingtang000@foxmail.com"
+        }
+    ]
 }
