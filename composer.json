@@ -3,12 +3,16 @@
     "description": "the game center api background code",
     "type": "library",
     "require": {
-        "yiisoft/yii2": "~2.0.14"
+        "yiisoft/yii2": "~2.0.14",
+        "bower-asset/punycode": "^2.1"
     },
     "authors": [
         {
             "name": "tp",
             "email": "pingtang000@foxmail.com"
         }
-    ]
+    ],
+    "psr-4": {
+      "gamecenter": "../"
+    }
 }
