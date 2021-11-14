@@ -15,5 +15,5 @@ interface ParamsInterface
 {
 	public static function getSingleton(...$args);
 
-	public static function toArray(): array;
+	public function toArray(): array;
 }

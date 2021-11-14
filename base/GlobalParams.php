@@ -28,5 +28,10 @@ class GlobalParams extends BaseParams
 	 * @var int
 	 */
 	public $siteId		=	0;
+    /**
+     * login after the identify id
+     * @var int
+     */
+	public $userId      =   0;
 
 }

@@ -24,4 +24,18 @@ abstract class BaseParams extends Component implements ParamsInterface
 		}
 		return  self::$instance;
 	}
+
+	public function toArray(): array
+    {
+        $reflectClass   =   new \ReflectionClass($this);
+        $props          =   $reflectClass->getProperties(\ReflectionProperty::IS_PUBLIC);
+
+        $myArray        =   [];
+        if($props){
+            foreach ($props as $prop){
+                $myArray[ $prop->getName() ]    = $prop->getValue();
+            }
+        }
+        return  $myArray;
+    }
 }
