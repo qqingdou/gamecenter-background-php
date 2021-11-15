@@ -21,7 +21,8 @@ class BaseWebController extends Controller
 
 	public function beforeAction($action)
 	{
-		$this->security();
+		CryptParams::getSingleton(\Yii::$app->request->post());
+
 		return parent::beforeAction($action);
 	}
 }
