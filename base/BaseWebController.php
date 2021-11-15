@@ -15,7 +15,38 @@ use yii\web\Controller;
 
 class BaseWebController extends Controller
 {
-	public function security(){
+	/**
+	 * 安全校验
+	 */
+	protected function security(){
+		$this->checkIp();
+		$this->checkDevice();
+		$this->checkUser();
+		$this->checkExt();
+	}
+
+	/**
+	 * 校验IP
+	 */
+	protected function checkIp(){
+
+	}
+
+	/**
+	 * 校验设备
+	 */
+	protected function checkDevice(){
+
+	}
+
+	/**
+	 * 校验用户
+	 */
+	protected function checkUser(){
+
+	}
+
+	protected function checkExt(){
 
 	}
 
@@ -23,6 +54,13 @@ class BaseWebController extends Controller
 	{
 		CryptParams::getSingleton(\Yii::$app->request->post());
 
+		$this->security();
+
 		return parent::beforeAction($action);
+	}
+
+	public function afterAction($action, $result)
+	{
+		return parent::afterAction($action, $result);
 	}
 }
