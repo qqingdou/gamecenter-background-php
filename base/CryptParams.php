@@ -36,11 +36,6 @@ class CryptParams extends BaseParams
 	 * @var string
 	 */
 	public $data	=	'';
-	/**
-	 * the aes decrypt data json
-	 * @var null
-	 */
-	public $dataJson	=	null;
 
 	/**
 	 * 校验MD5加密
@@ -95,7 +90,7 @@ class CryptParams extends BaseParams
 				$aesDecryptDataJson	=	Json::decode($aesDecryptData, true);
 
 				if($aesDecryptDataJson){
-					$this->dataJson	=	$aesDecryptDataJson;
+					$aesDecryptDataJson['data']	=	$aesDecryptDataJson;
 					GlobalParams::getSingleton($aesDecryptDataJson);
 					return true;
 				}

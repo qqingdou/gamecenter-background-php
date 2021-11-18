@@ -10,13 +10,36 @@ namespace gamecenter\common\models;
 
 
 use gamecenter\base\BaseModel;
+use gamecenter\base\BaseResponse;
+use gamecenter\base\GlobalParams;
+use gamecenter\common\helpers\ValidateHelper;
+use gamecenter\services\user\login\AccountLogin;
 
 class LoginModel extends BaseModel
 {
-    public $account     =   '';
-    public $password    =   '';
+	/**
+	 * 验证规则
+	 * @return array
+	 */
+	protected function validateRules(){
+    	$rules	=	[
+			[['account', 'password'], 'required', 'message' => '必填参数不能为空'],
+			['account', 'validateAccount', ],
+			['password', 'validatePassword', ],
+		];
+		$result	=	ValidateHelper::validateRules(GlobalParams::getSingleton()->getData(), $rules, $message = '');
+		return	[$result, $message];
+	}
 
-    public function accountLogin(){
+	public function accountLogin(){
 
-    }
+		list($validateResult, $message)	=	$this->validateRules();
+
+		if(!$validateResult){
+			return	BaseResponse::getSingleton()->message = $message;
+		}
+
+		$myService	=	new AccountLogin();
+		return	$myService->login();
+	}
 }

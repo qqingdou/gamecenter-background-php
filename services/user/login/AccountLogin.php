@@ -8,6 +8,7 @@
 
 namespace gamecenter\services\user\login;
 
+use gamecenter\base\GlobalParams;
 use gamecenter\services\user\LoginParams;
 use gamecenter\services\user\LoginService;
 
@@ -17,6 +18,8 @@ class AccountLogin extends LoginService
     public $password    =   '';
 
     protected function dealLogin(): LoginParams{
+
+    	$myGlobalParams	=	GlobalParams::getSingleton();
 
         $data           =   null;//todo 数据库验证 or
 

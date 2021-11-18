@@ -8,8 +8,7 @@
 
 namespace gamecenter\base;
 
-
-class BaseService
+class BaseService extends BaseComponent
 {
 
 }

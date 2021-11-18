@@ -34,4 +34,7 @@ class GlobalParams extends BaseParams
      */
 	public $userId      =   0;
 
+
+
+
 }

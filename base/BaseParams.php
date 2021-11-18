@@ -10,12 +10,11 @@
 
 namespace gamecenter\base;
 
-
-use yii\base\Component;
-
-abstract class BaseParams extends Component implements ParamsInterface
+abstract class BaseParams extends BaseComponent implements ParamsInterface
 {
 	private static $instance    =   null;
+
+	public $data				=	null;
 
 	public static function getSingleton(...$args)
 	{
@@ -23,6 +22,17 @@ abstract class BaseParams extends Component implements ParamsInterface
 			self::$instance =   new static($args);
 		}
 		return  self::$instance;
+	}
+
+	/**
+	 * @return null
+	 */
+	public function getData()
+	{
+		if(!$this->data){
+			$this->data	=	array_merge(\Yii::$app->request->post(), \Yii::$app->request->get());
+		}
+		return	$this->data;
 	}
 
 	public function toArray(): array
