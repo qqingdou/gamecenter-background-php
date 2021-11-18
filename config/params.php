@@ -9,5 +9,5 @@
  */
 
 return [
-	'AES_KEY'	=>	'#$Yk^3@g5LGcfl%t'
+	'AES_KEY'	=>	''
 ];
